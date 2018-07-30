@@ -5,10 +5,11 @@ const {
 	GraphQLObjectType,
 	GraphQLString,
 	GraphQLInt,
-	GraphQLSchema, // we'll use them for the RootQuery
-	GraphQLList // we'll use them for the RootQuery
+	GraphQLSchema,
+	GraphQLList
 } = graphql;
 
+// now_playing
 const NewMoviesType = new GraphQLObjectType({
 	name: 'NewMovies',
 	fields: {
@@ -18,6 +19,11 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
+// single movie
+const MovieInfoType = new GraphQLObjectType({
+	name: 'MovieInfo',
+	fields: {}
+});
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
@@ -34,8 +40,9 @@ const RootQuery = new GraphQLObjectType({
 						const movies = res.data.results;
 						movies.map(
 							movie =>
-								(movie.poster_path =
-									'https://image.tmdb.org/t/p/w500' + movie.poster_path)
+								(movie.poster_path = `https://image.tmdb.org/t/p/w500${
+									movie.poster_path
+								}`)
 						);
 						return movies;
 					});
