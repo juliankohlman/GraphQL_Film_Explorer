@@ -1,4 +1,10 @@
 {
+	"name": "server",
+	"version": "1.0.0",
+	"description": "GraphQL_Film_Explorer",
+	"author": "Julian Kohlman",
+	"main": "server.js",
+	"license": "MIT",
 	"scripts": {
 		"server": "nodemon server.js"
 	},
