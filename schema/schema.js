@@ -12,6 +12,10 @@ const {
 } = graphql;
 
 // movie search by title
+// * Search type can be an entry way.
+// * User enters a search query on front end
+// * gets presented with the search results (title, release_year)
+// * selects movie which will trigger route to movie info type via the id BOOM
 const MovieSearchType = new GraphQLObjectType({
 	name: 'Search',
 	fields: () => ({
@@ -33,7 +37,8 @@ const NewMoviesType = new GraphQLObjectType({
 	fields: {
 		id: { type: GraphQLID },
 		poster_path: { type: GraphQLString },
-		title: { type: GraphQLString }
+		title: { type: GraphQLString },
+		overview: { type: GraphQLString }
 	}
 });
 
