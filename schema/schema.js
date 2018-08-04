@@ -131,11 +131,6 @@ const RootQuery = new GraphQLObjectType({
 					)
 					.then(res => {
 						const movies = res.data.results;
-						// movies.map(movie =>
-						// 		(movie.poster_path = `https://image.tmdb.org/t/p/w500${
-						// 			movie.poster_path
-						// 		}`)
-						// );
 						movies.map(movie => {
 							movie.poster_path = `https://image.tmdb.org/t/p/w500${
 								movie.poster_path
