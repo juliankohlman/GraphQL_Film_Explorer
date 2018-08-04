@@ -8,9 +8,24 @@ const {
 	GraphQLSchema,
 	GraphQLList,
 	GraphQLID,
-	GraphQLFloat,
-	GraphQLEnumType
+	GraphQLFloat
 } = graphql;
+
+// movie search by title
+const MovieSearchType = new GraphQLObjectType({
+	name: 'Search',
+	fields: () => ({
+		query: { type: GraphQLString },
+		id: { type: GraphQLID },
+		popularity: { type: GraphQLFloat },
+		original_title: { type: GraphQLString },
+		vote_count: { type: GraphQLInt },
+		vote_average: { type: GraphQLFloat },
+		poster_path: { type: GraphQLString },
+		overview: { type: GraphQLString },
+		release_date: { type: GraphQLString }
+	})
+});
 
 // now_playing
 const NewMoviesType = new GraphQLObjectType({
@@ -86,22 +101,6 @@ const VideoType = new GraphQLObjectType({
 	}
 });
 
-// movie search by title
-const MovieSearchType = new GraphQLObjectType({
-	name: 'Search',
-	fields: () => ({
-		query: { type: GraphQLString },
-		id: { type: GraphQLID },
-		popularity: { type: GraphQLFloat },
-		original_title: { type: GraphQLString },
-		vote_count: { type: GraphQLInt },
-		vote_average: { type: GraphQLFloat },
-		poster_path: { type: GraphQLString },
-		overview: { type: GraphQLString },
-		release_date: { type: GraphQLString }
-	})
-});
-
 // movie credits
 const MovieCreditsType = new GraphQLObjectType({
 	name: 'MovieCredits',
@@ -127,28 +126,6 @@ const MovieReviewsType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
-		searchMovie: {
-			type: new GraphQLList(MovieSearchType),
-			args: { query: { type: GraphQLString } },
-			resolve(parentVal, args) {
-				return axios
-					.get(
-						`https://api.themoviedb.org/3/search/movie?api_key=${
-							process.env.API
-						}&language=en-US&query=${args.query}&page=1&include_adult=false`
-					)
-					.then(res => {
-						const movies = res.data.results;
-						movies.map(
-							movie =>
-								(movie.poster_path = `https://image.tmdb.org/t/p/w500${
-									movie.poster_path
-								}`)
-						);
-						return movies;
-					});
-			}
-		},
 		movieInfo: {
 			type: MovieInfoType,
 			args: { id: { type: GraphQLID } },
@@ -168,6 +145,28 @@ const RootQuery = new GraphQLObjectType({
 						// could leave the time interpretation for the front-end
 						movie.runtime += ' minutes.';
 						return movie;
+					});
+			}
+		},
+		searchMovie: {
+			type: new GraphQLList(MovieSearchType),
+			args: { query: { type: GraphQLString }, id: { type: GraphQLID } },
+			resolve(parentVal, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/search/movie?api_key=${
+							process.env.API
+						}&language=en-US&query=${args.query}&page=1&include_adult=false`
+					)
+					.then(res => {
+						const movies = res.data.results;
+						movies.map(
+							movie =>
+								(movie.poster_path = `https://image.tmdb.org/t/p/w500${
+									movie.poster_path
+								}`)
+						);
+						return movies;
 					});
 			}
 		},
