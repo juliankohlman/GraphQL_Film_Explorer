@@ -7,7 +7,9 @@ const {
 	GraphQLInt,
 	GraphQLSchema,
 	GraphQLList,
-	GraphQLID
+	GraphQLID,
+	GraphQLFloat,
+	GraphQLEnumType
 } = graphql;
 
 // now_playing
@@ -20,47 +22,34 @@ const NewMoviesType = new GraphQLObjectType({
 	}
 });
 
-// trailers
-const VideoType = new GraphQLObjectType({
-	name: 'Video',
-	fields: {
-		id: { type: GraphQLID },
-		key: { type: GraphQLString }
-	}
-});
-
-// movie search
-const MovieSearchType = new GraphQLObjectType({
-	name: 'Search',
-	fields: {
-		query: { type: GraphQLString },
-		year: { type: GraphQLInt },
-		original_title: { type: GraphQLString },
-		vote_count: { type: GraphQLInt },
-		id: { type: GraphQLID },
-		poster_path: { type: GraphQLString },
-		overview: { type: GraphQLString },
-		release_date: { type: GraphQLString }
-	}
-});
-
-// single movie
+// single movie by id
 const MovieInfoType = new GraphQLObjectType({
 	name: 'MovieInfo',
-	fields: {
+	fields: () => ({
 		id: { type: GraphQLID },
 		overview: { type: GraphQLString },
 		title: { type: GraphQLString },
 		poster_path: { type: GraphQLString },
 		genres: { type: GraphQLString },
 		release_date: { type: GraphQLString },
-		vote_average: { type: GraphQLString },
+		vote_average: { type: GraphQLFloat },
 		production_companies: { type: GraphQLString },
 		runtime: { type: GraphQLString },
+		movieReviews: {
+			type: new GraphQLList(MovieReviewsType),
+			args: { id: { type: GraphQLString } },
+			resolve(parentValue, args) {
+				return axios.get(
+					`https://api.themoviedb.org/3/movie/${
+						parentValue.id
+					}/reviews?api_key=${process.env.API}&language=en-US&page=1`
+				);
+			}
+		},
 		videos: {
 			type: new GraphQLList(VideoType),
-			args: { id: { type: GraphQLString } },
-			resolve(parentVal, args) {
+			args: { id: { type: GraphQLID } },
+			resolve(parentValue, args) {
 				return axios
 					.get(
 						`https://api.themoviedb.org/3/movie/${
@@ -70,6 +59,53 @@ const MovieInfoType = new GraphQLObjectType({
 					.then(res => res.data.results);
 			}
 		}
+	})
+});
+
+// trailers
+const VideoType = new GraphQLObjectType({
+	name: 'Video',
+	fields: {
+		id: { type: GraphQLID },
+		key: { type: GraphQLString }
+	}
+});
+
+// movie search by title
+const MovieSearchType = new GraphQLObjectType({
+	name: 'Search',
+	fields: () => ({
+		query: { type: GraphQLString },
+		id: { type: GraphQLID },
+		popularity: { type: GraphQLFloat },
+		original_title: { type: GraphQLString },
+		vote_count: { type: GraphQLInt },
+		vote_average: { type: GraphQLFloat },
+		poster_path: { type: GraphQLString },
+		overview: { type: GraphQLString },
+		release_date: { type: GraphQLString }
+	})
+});
+
+// movie credits
+const MovieCreditsType = new GraphQLObjectType({
+	name: 'MovieCredits',
+	fields: {
+		id: { type: GraphQLString },
+		character: { type: GraphQLString },
+		name: { type: GraphQLString },
+		profile_path: { type: GraphQLString },
+		order: { type: GraphQLString }
+	}
+});
+
+// movie reviews
+const MovieReviewsType = new GraphQLObjectType({
+	name: 'MovieReviews',
+	fields: {
+		id: { type: GraphQLString },
+		content: { type: GraphQLString },
+		author: { type: GraphQLString }
 	}
 });
 
