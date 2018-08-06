@@ -17,5 +17,6 @@
 	},
 	"devDependencies": {
 		"nodemon": "^1.18.3"
-	}
+	},
+	"repository": "https://github.com/juliankohlman/GraphQL_Film_Explorer.git"
 }
