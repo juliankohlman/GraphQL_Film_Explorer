@@ -5,7 +5,6 @@ import { ApolloProvider } from 'react-apollo';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import NewMovies from './components/NewMovies';
 import MovieInfo from './components/MovieInfo';
-import Link from '../node_modules/react-router-dom/Link';
 
 // import './styles/style.css';
 // import './index.css';

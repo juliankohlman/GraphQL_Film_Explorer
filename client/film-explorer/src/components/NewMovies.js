@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import gql from 'graphql-tag';
+// import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { getNewMovies } from '../queries/queries';
 
 class NewMovies extends Component {
 	Movies() {
-		return this.props.data.newMovies.map(movie => {
+		console.log(this.props);
+
+		return this.props.data.map(movie => {
 			return (
 				<article key={movie.id} className="movie_list">
 					<Link to={'/info/' + movie.id}>
