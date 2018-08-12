@@ -1,6 +1,6 @@
 import { gql } from 'apollo-boost';
 
-const getNewMovies = gql`
+const query = gql`
 	{
 		newMovies {
 			id
@@ -40,4 +40,4 @@ const getMovieInfo = gql`
 		}
 	}
 `;
-export { getNewMovies, getMovieInfo };
+export { query, getMovieInfo };

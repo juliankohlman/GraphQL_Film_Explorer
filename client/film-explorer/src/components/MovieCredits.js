@@ -5,7 +5,10 @@ export default class MovieCredits extends Component {
 		return credits.map(cast => {
 			return (
 				<li key={cast.id}>
-					<img src={`https://image.tmdb.org/t/p/w500//${cast.profile_path}`} />
+					<img
+						src={`https://image.tmdb.org/t/p/w500//${cast.profile_path}`}
+						alt="cast profile"
+					/>
 					<div className="castWrapper">
 						<div className="castWrapperInfo">
 							<span>{cast.name}</span>

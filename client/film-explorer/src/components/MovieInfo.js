@@ -30,6 +30,7 @@ class MovieInfo extends Component {
 				<div className="youtube-video">
 					<p onClick={() => this.videoExit()}>close video</p>
 					<iframe
+						title={`this.state.video.name`}
 						width="560"
 						height="315"
 						src={`//www.youtube.com/embed/${this.state.video}`}
@@ -47,6 +48,7 @@ class MovieInfo extends Component {
 					key={video.id}
 					onClick={() => this.videoDisplay(video.key)}
 					className="video_thumbs"
+					alt="thumbnail"
 					src={`http://img.youtube.com/vi/${video.key}/0.jpg`}
 				/>
 			);
