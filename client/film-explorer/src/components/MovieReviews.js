@@ -13,7 +13,7 @@ class MovieReviews extends Component {
 	}
 	render() {
 		return (
-			<div className="reviews">{this.renderReviews(this.props.review)}</div>
+			<div className="reviews">{this.renderReviews(this.props.reviews)}</div>
 		);
 	}
 }
