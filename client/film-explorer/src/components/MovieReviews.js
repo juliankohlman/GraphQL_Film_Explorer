@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-export default class MovieReviews extends Component {
+class MovieReviews extends Component {
 	renderReviews(reviews) {
 		return reviews.map(review => {
 			return (
@@ -17,3 +17,5 @@ export default class MovieReviews extends Component {
 		);
 	}
 }
+
+export default MovieReviews;

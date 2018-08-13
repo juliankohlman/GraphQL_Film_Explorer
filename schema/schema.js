@@ -110,7 +110,7 @@ const VideoType = new GraphQLObjectType({
 const MovieCreditsType = new GraphQLObjectType({
 	name: 'MovieCredits',
 	fields: {
-		id: { type: GraphQLString },
+		id: { type: GraphQLID },
 		character: { type: GraphQLString },
 		name: { type: GraphQLString },
 		profile_path: { type: GraphQLString },
@@ -122,7 +122,7 @@ const MovieCreditsType = new GraphQLObjectType({
 const MovieReviewsType = new GraphQLObjectType({
 	name: 'MovieReviews',
 	fields: {
-		id: { type: GraphQLString },
+		id: { type: GraphQLID },
 		content: { type: GraphQLString },
 		author: { type: GraphQLString }
 	}

@@ -12,7 +12,6 @@ class MovieInfo extends Component {
 			video: null
 		};
 	}
-
 	renderVideos(videos) {
 		return videos.map(video => {
 			return (
@@ -20,36 +19,32 @@ class MovieInfo extends Component {
 					key={video.id}
 					onClick={() => this.videoDisplay(video.key)}
 					className="video_thumbs"
-					alt="thumbnail"
 					src={`http://img.youtube.com/vi/${video.key}/0.jpg`}
+					alt=""
 				/>
 			);
 		});
 	}
-
 	videoDisplay(video) {
 		this.setState({
 			video
 		});
 	}
-
 	videoToggle() {
 		if (this.state.video)
 			return (
 				<div className="youtube-video">
-					<p onClick={() => this.videoExit()}>close video</p>
+					<p onClick={() => this.videoExit()}>close</p>
 					<iframe
-						title={`this.state.video.name`}
 						width="560"
 						height="315"
 						src={`//www.youtube.com/embed/${this.state.video}`}
-						frameBorder="0"
-						allowFullScreen
+						frameborder="0"
+						allowfullscreen
 					/>
 				</div>
 			);
 	}
-
 	videoExit() {
 		this.setState({
 			video: null
@@ -57,16 +52,19 @@ class MovieInfo extends Component {
 	}
 
 	render() {
-		console.log(this.state);
-
 		const id = this.props.match.params.id;
+		console.log(this.props.data);
+
 		return (
-			<Query query={query} variables={{ id }}>
+			<Query query={getMovieInfo} variables={{ id }}>
 				{({ loading, err, data }) => {
 					if (loading) return <div>loading</div>;
-					if (err) return <p> Error :(</p>;
+					if (err) return <p>Error :(</p>;
 					return (
 						<div>
+							<a id="home_btn" href="/">
+								Home
+							</a>
 							<header
 								style={{
 									backgroundImage:
@@ -126,36 +124,5 @@ class MovieInfo extends Component {
 		);
 	}
 }
-
-const query = gql`
-	query MovieInfo($id: String) {
-		movieInfo(id: $id) {
-			title
-			overview
-			poster_path
-			genres
-			release_date
-			vote_average
-			runtime
-			production_companies
-			videos {
-				id
-				key
-			}
-			movieReviews {
-				id
-				content
-				author
-			}
-			movieCredits {
-				id
-				character
-				name
-				profile_path
-				order
-			}
-		}
-	}
-`;
 
 export default graphql(getMovieInfo)(MovieInfo);
