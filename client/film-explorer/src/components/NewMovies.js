@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
-import { query } from '../queries/queries';
+import { getNewMovies } from '../queries/queries';
 
 class NewMovies extends Component {
 	Movies() {
-		console.log(this.props);
-
+		console.log(this.props.data);
 		return this.props.data.newMovies.map(movie => {
 			return (
 				<article key={movie.id} className="movie_list">
@@ -19,10 +18,10 @@ class NewMovies extends Component {
 		});
 	}
 	render() {
+		// return <div>Something</div>;
 		if (this.props.data.loading) return <div>loading movies...</div>;
 		return this.Movies();
-		// return <div>Something</div>;
 	}
 }
 
-export default graphql(query)(NewMovies);
+export default graphql(getNewMovies)(NewMovies);

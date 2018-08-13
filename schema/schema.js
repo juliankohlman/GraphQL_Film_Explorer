@@ -57,7 +57,7 @@ const MovieInfoType = new GraphQLObjectType({
 		runtime: { type: GraphQLString },
 		movieReviews: {
 			type: new GraphQLList(MovieReviewsType),
-			args: { id: { type: GraphQLString } },
+			args: { id: { type: GraphQLID } },
 			resolve(parentValue, args) {
 				return axios
 					.get(
@@ -70,7 +70,7 @@ const MovieInfoType = new GraphQLObjectType({
 		},
 		movieCredits: {
 			type: new GraphQLList(MovieCreditsType),
-			args: { id: { type: GraphQLString } },
+			args: { id: { type: GraphQLID } },
 			resolve(parentValue, args) {
 				return axios
 					.get(
@@ -131,6 +131,28 @@ const MovieReviewsType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
+		newMovies: {
+			type: new GraphQLList(NewMoviesType),
+			resolve() {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/movie/now_playing?api_key=${
+							process.env.API
+						}&language=en-US&page=1`
+					)
+					.then(res => {
+						const movies = res.data.results;
+						movies.map(movie => {
+							movie.poster_path = `https://image.tmdb.org/t/p/w500${
+								movie.poster_path
+							}`;
+							movie.overview;
+						});
+
+						return movies;
+					});
+			}
+		},
 		movieInfo: {
 			type: MovieInfoType,
 			args: { id: { type: GraphQLID } },
@@ -171,28 +193,6 @@ const RootQuery = new GraphQLObjectType({
 									movie.poster_path
 								}`)
 						);
-						return movies;
-					});
-			}
-		},
-		newMovies: {
-			type: new GraphQLList(NewMoviesType),
-			resolve() {
-				return axios
-					.get(
-						`https://api.themoviedb.org/3/movie/now_playing?api_key=${
-							process.env.API
-						}&language=en-US&page=1`
-					)
-					.then(res => {
-						const movies = res.data.results;
-						movies.map(movie => {
-							movie.poster_path = `https://image.tmdb.org/t/p/w500${
-								movie.poster_path
-							}`;
-							movie.overview;
-						});
-
 						return movies;
 					});
 			}
