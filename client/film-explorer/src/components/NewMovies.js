@@ -18,7 +18,6 @@ class NewMovies extends Component {
 		});
 	}
 	render() {
-		// return <div>Something</div>;
 		if (this.props.data.loading) return <div>loading movies...</div>;
 		return this.Movies();
 	}
