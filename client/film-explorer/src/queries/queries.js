@@ -10,6 +10,18 @@ const getNewMovies = gql`
 	}
 `;
 
+const searchForMovies = gql`
+	query($query: String) {
+		searchMovie(query: $query) {
+			id
+			original_title
+			popularity
+			overview
+			release_date
+		}
+	}
+`;
+
 const getMovieInfo = gql`
 	query($id: ID) {
 		movieInfo(id: $id) {
@@ -40,4 +52,4 @@ const getMovieInfo = gql`
 		}
 	}
 `;
-export { getNewMovies, getMovieInfo };
+export { getNewMovies, getMovieInfo, searchForMovies };
