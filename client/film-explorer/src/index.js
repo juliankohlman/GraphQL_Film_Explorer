@@ -19,7 +19,6 @@ const Root = () => {
 					<Route exact path="/" component={LandingPage} />
 					<Route exact path="/movies" component={NewMovies} />
 					<Route exact path="/info/:id" component={MovieInfo} />
-					<Route exact path="/landing" component={LandingPage} />
 				</Switch>
 			</ApolloProvider>
 		</HashRouter>
