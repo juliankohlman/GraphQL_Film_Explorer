@@ -5,6 +5,7 @@ import { ApolloProvider } from 'react-apollo';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 import NewMovies from './components/NewMovies';
 import MovieInfo from './components/MovieInfo';
+import LandingPage from './components/LandingPage';
 import './style/style.css';
 const client = new ApolloClient({
 	// Burned a lot of time b/f realizing I was not providing the client side w/the proper endpoint
@@ -15,8 +16,10 @@ const Root = () => {
 		<HashRouter>
 			<ApolloProvider client={client}>
 				<Switch>
-					<Route exact path="/" component={NewMovies} />
+					<Route exact path="/" component={LandingPage} />
+					<Route exact path="/movies" component={NewMovies} />
 					<Route exact path="/info/:id" component={MovieInfo} />
+					<Route exact path="/landing" component={LandingPage} />
 				</Switch>
 			</ApolloProvider>
 		</HashRouter>
