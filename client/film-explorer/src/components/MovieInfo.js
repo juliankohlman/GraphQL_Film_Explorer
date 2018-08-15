@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import gql from 'graphql-tag';
 import { Query, graphql } from 'react-apollo';
 import { getMovieInfo } from '../queries/queries';
 import MovieReviews from './MovieReviews';
@@ -36,6 +35,7 @@ class MovieInfo extends Component {
 				<div className="youtube-video">
 					<p onClick={() => this.videoExit()}>close</p>
 					<iframe
+						title="trailer"
 						width="560"
 						height="315"
 						src={`//www.youtube.com/embed/${this.state.video}`}

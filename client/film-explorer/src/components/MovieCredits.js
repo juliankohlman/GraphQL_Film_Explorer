@@ -11,8 +11,8 @@ export default class MovieCredits extends Component {
 					/>
 					<div className="castWrapper">
 						<div className="castWrapperInfo">
-							<span>{cast.name}</span>
-							<span>{cast.character}</span>
+							<span>{cast.name} as</span>
+							<span> {cast.character}</span>
 						</div>
 					</div>
 				</li>
