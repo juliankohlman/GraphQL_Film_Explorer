@@ -1,15 +1,30 @@
 import React, { Component } from 'react';
-import { Query, graphql } from 'react-apollo';
+import { withApollo } from 'react-apollo';
+import gql from 'graphql-tag';
+// import { withApollo, Query, graphql } from 'react-apollo';
 // import { Link } from 'react-router-dom';
-import { searchForMovies } from '../queries/queries';
+// import { searchForMovies } from '../queries/queries';
+
+const searchForMovies = gql`
+	query($query: String) {
+		searchMovie(query: $query) {
+			id
+			original_title
+			popularity
+			overview
+			release_date
+		}
+	}
+`;
 
 class MovieSearch extends Component {
 	state = {
+		results: [],
 		query: ''
 	};
 
 	render() {
-		const query = this.state.query;
+		// const title = this.state.title;
 		return (
 			<div>
 				<div>
@@ -18,44 +33,27 @@ class MovieSearch extends Component {
 						type="text"
 						onChange={e => this.setState({ query: e.target.value })}
 					/>
-					{/* <button onClick={() => this.runSearch()}>OK</button> */}
+					<button onClick={() => this.runSearch()}>OK</button>
+					{this.state.results.map(movie => (
+						<li>{movie.original_title}</li>
+					))}
 				</div>
-				<Query query={searchForMovies} variables={{ query }}>
-					{({ loading, err, data }) => {
-						if (loading) return <div>loading</div>;
-						if (err) return <p>Error :(</p>;
-
-						console.log(data);
-						return (
-							<div>
-								<p>Search results</p>
-								{/* {this.data.searchMovie(movie => {
-									return <li>movie.original_title</li>;
-								})} */}
-							</div>
-						);
-					}}
-				</Query>
 			</div>
 		);
 	}
-	// Movies() {
-	// 	console.log(this.props.data);
-	// 	return this.props.data.MovieSearch.map(movie => {
-	// 		return (
-	// 			<article key={movie.id} className="movie_list">
-	// 				<Link to={'/info/' + movie.id}>
-	// 					<img src={movie.poster_path} alt="poster" />
-	// 				</Link>
-	// 				<h1>{movie.title}</h1>
-	// 			</article>
-	// 		);
-	// 	});
-	// }
-	// render() {
-	// 	if (this.props.data.loading) return <div>loading movies...</div>;
-	// 	return this.Movies();
-	// }
+
+	runSearch = async () => {
+		const { query } = this.state;
+		const result = await this.props.client.query({
+			query: searchForMovies,
+			variables: { query }
+		});
+		const results = result.data.searchMovie;
+		console.log(results);
+
+		this.setState({ results });
+	};
 }
 
-export default graphql(searchForMovies)(MovieSearch);
+export default withApollo(MovieSearch);
+// export default withApollo(searchForMovies)(MovieSearch);
