@@ -24,11 +24,14 @@ class MovieSearch extends Component {
 					{({ loading, err, data }) => {
 						if (loading) return <div>loading</div>;
 						if (err) return <p>Error :(</p>;
-						console.log(data);
 
+						console.log(data);
 						return (
 							<div>
 								<p>Search results</p>
+								{/* {this.data.searchMovie(movie => {
+									return <li>movie.original_title</li>;
+								})} */}
 							</div>
 						);
 					}}
