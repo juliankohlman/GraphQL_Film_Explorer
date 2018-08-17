@@ -1,21 +1,6 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
-import gql from 'graphql-tag';
-// import { withApollo, Query, graphql } from 'react-apollo';
-// import { Link } from 'react-router-dom';
-// import { searchForMovies } from '../queries/queries';
-
-const searchForMovies = gql`
-	query($query: String) {
-		searchMovie(query: $query) {
-			id
-			original_title
-			popularity
-			overview
-			release_date
-		}
-	}
-`;
+import { searchForMovies } from '../queries/queries';
 
 class MovieSearch extends Component {
 	state = {
@@ -24,7 +9,6 @@ class MovieSearch extends Component {
 	};
 
 	render() {
-		// const title = this.state.title;
 		return (
 			<div>
 				<div>
@@ -35,7 +19,7 @@ class MovieSearch extends Component {
 					/>
 					<button onClick={() => this.runSearch()}>OK</button>
 					{this.state.results.map(movie => (
-						<li>{movie.original_title}</li>
+						<li key={movie.id}>{movie.original_title}</li>
 					))}
 				</div>
 			</div>
@@ -56,4 +40,3 @@ class MovieSearch extends Component {
 }
 
 export default withApollo(MovieSearch);
-// export default withApollo(searchForMovies)(MovieSearch);
