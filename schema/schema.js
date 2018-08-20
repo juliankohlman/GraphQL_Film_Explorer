@@ -22,9 +22,18 @@ const {
 const MovieDiscoverType = new GraphQLObjectType({
 	name: 'Discover',
 	fields: () => ({
-		
+		query: { type: GraphQLInt },
+		primary_release_year: { type: GraphQLInt },
+		id: { type: GraphQLID },
+		popularity: { type: GraphQLFloat },
+		title: { type: GraphQLString },
+		vote_count: { type: GraphQLInt },
+		vote_average: { type: GraphQLFloat },
+		poster_path: { type: GraphQLString },
+		overview: { type: GraphQLString },
+		release_date: { type: GraphQLString }
 	})
-})
+});
 
 // * https://developers.themoviedb.org/3/discover/movie-discover
 const MovieSearchType = new GraphQLObjectType({
@@ -41,6 +50,8 @@ const MovieSearchType = new GraphQLObjectType({
 		release_date: { type: GraphQLString }
 	})
 });
+
+// Actor/Dir search type
 
 // now_playing
 const NewMoviesType = new GraphQLObjectType({
@@ -142,6 +153,27 @@ const MovieReviewsType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
+		discoverMovies: {
+			type: new GraphQLList(MovieDiscoverType),
+			args: { primary_release_year: { type: GraphQLInt } },
+			resolve(parentVal, args) {
+				return axios
+					.get(
+						`https://api.themoviedb.org/3/discover/movie?api_key=${
+							process.env.API
+						}&language=en-US&page=1&primary_release_year=${
+							args.primary_release_year
+						}`
+					)
+					.then(res => {
+						const movies = res.data.results;
+						movies.map(movie => {
+							movie.primary_release_year;
+						});
+						return movies;
+					});
+			}
+		},
 		newMovies: {
 			type: new GraphQLList(NewMoviesType),
 			resolve() {
@@ -188,7 +220,7 @@ const RootQuery = new GraphQLObjectType({
 		},
 		searchMovie: {
 			type: new GraphQLList(MovieSearchType),
-			args: { query: { type: GraphQLString }, id: { type: GraphQLID } },
+			args: { query: { type: GraphQLString } },
 			resolve(parentVal, args) {
 				return axios
 					.get(
