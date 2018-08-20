@@ -18,6 +18,7 @@ const {
 // * selects movie which will trigger route to movie info type via the id BOOM
 // movie discover
 // implement schema for 80's movie discovery
+// * Flesh out different Discovery objects for front-end
 // then implement the query in queries.js for testing
 const MovieDiscoverType = new GraphQLObjectType({
 	name: 'Discover',
@@ -65,6 +66,7 @@ const NewMoviesType = new GraphQLObjectType({
 });
 
 // single movie by id
+// ! ADD TAGLINE TO QUERY
 const MovieInfoType = new GraphQLObjectType({
 	name: 'MovieInfo',
 	fields: () => ({
@@ -129,6 +131,7 @@ const VideoType = new GraphQLObjectType({
 });
 
 // movie credits
+// ! ADD CREW TO CREDITS JUST WANT DIRECTOR/WRITER/ETC...
 const MovieCreditsType = new GraphQLObjectType({
 	name: 'MovieCredits',
 	fields: {

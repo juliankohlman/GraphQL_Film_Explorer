@@ -12,10 +12,14 @@ class DiscoverMovies extends Component {
 	render() {
 		return (
 			<div>
+				<a id="home_btn" href="/">
+					Home
+				</a>
 				<div>
 					Search
 					<input
 						type="text"
+						placeholder="Enter a year..."
 						onChange={e =>
 							this.setState({ primary_release_year: e.target.value })
 						}

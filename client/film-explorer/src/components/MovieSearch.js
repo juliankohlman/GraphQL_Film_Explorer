@@ -12,10 +12,14 @@ class MovieSearch extends Component {
 	render() {
 		return (
 			<div>
+				<a id="home_btn" href="/">
+					Home
+				</a>
 				<div>
 					Search
 					<input
 						type="text"
+						placeholder="Movie title..."
 						onChange={e => this.setState({ query: e.target.value })}
 					/>
 					<button onClick={() => this.runSearch()}>OK</button>
