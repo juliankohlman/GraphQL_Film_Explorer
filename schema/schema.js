@@ -153,7 +153,7 @@ const MovieReviewsType = new GraphQLObjectType({
 const RootQuery = new GraphQLObjectType({
 	name: 'RootQueryType',
 	fields: {
-		discoverMovies: {
+		discovery: {
 			type: new GraphQLList(MovieDiscoverType),
 			args: { primary_release_year: { type: GraphQLInt } },
 			resolve(parentVal, args) {
@@ -173,7 +173,6 @@ const RootQuery = new GraphQLObjectType({
 							}`;
 							movie.overview;
 						});
-
 						return movies;
 					});
 			}

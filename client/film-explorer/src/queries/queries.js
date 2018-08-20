@@ -10,14 +10,16 @@ const getNewMovies = gql`
 	}
 `;
 const discoverMovies = gql`
-	query($primary_release_year: INT) {
-		id
-		popularity
-		original_title
-		vote_average
-		vote_count
-		poster_path
-		release_date
+	query($primary_release_year: Int) {
+		discovery(primary_release_year: $primary_release_year) {
+			id
+			popularity
+			title
+			vote_average
+			vote_count
+			poster_path
+			release_date
+		}
 	}
 `;
 

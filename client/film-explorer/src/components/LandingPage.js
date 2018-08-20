@@ -10,6 +10,9 @@ const customLandingLinks = () => (
 		<li>
 			<Link to="/search">Movie Search</Link>
 		</li>
+			<li>
+			<Link to="/discover">Discover Movies</Link>
+		</li>
 	</div>
 );
 
