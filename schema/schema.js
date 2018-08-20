@@ -16,9 +16,15 @@ const {
 // * User enters a search query on front end
 // * gets presented with the search results (title, release_year)
 // * selects movie which will trigger route to movie info type via the id BOOM
-// discover
+// movie discover
 // implement schema for 80's movie discovery
-// thne implement the query in queries.js for testing
+// then implement the query in queries.js for testing
+const MovieDiscoverType = new GraphQLObjectType({
+	name: 'Discover',
+	fields: () => ({
+		
+	})
+})
 
 // * https://developers.themoviedb.org/3/discover/movie-discover
 const MovieSearchType = new GraphQLObjectType({
