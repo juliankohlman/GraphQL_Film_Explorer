@@ -21,6 +21,7 @@
 		"react-scripts": "^1.1.4"
 	},
 	"scripts": {
+		"sass": "node-sass --watch src/style/sass -o css",
 		"start": "react-scripts start",
 		"build": "react-scripts build",
 		"test": "react-scripts test --env=jsdom",
