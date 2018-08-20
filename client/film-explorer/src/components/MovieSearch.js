@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { withApollo } from 'react-apollo';
+import { Link } from 'react-router-dom';
 import { searchForMovies } from '../queries/queries';
 
 class MovieSearch extends Component {
@@ -19,7 +20,12 @@ class MovieSearch extends Component {
 					/>
 					<button onClick={() => this.runSearch()}>OK</button>
 					{this.state.results.map(movie => (
-						<li key={movie.id}>{movie.original_title}</li>
+						<article key={movie.id} className="movie_list">
+							<Link to={'/info/' + movie.id}>
+								<img src={movie.poster_path} alt="poster" />
+							</Link>
+							<h1>{movie.original_title}</h1>
+						</article>
 					))}
 				</div>
 			</div>

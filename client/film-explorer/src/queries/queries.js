@@ -9,6 +9,17 @@ const getNewMovies = gql`
 		}
 	}
 `;
+const discoverMovies = gql`
+	query($primary_release_year: INT) {
+		id
+		popularity
+		original_title
+		vote_average
+		vote_count
+		poster_path
+		release_date
+	}
+`;
 
 const searchForMovies = gql`
 	query($query: String) {
@@ -18,6 +29,7 @@ const searchForMovies = gql`
 			popularity
 			overview
 			release_date
+			poster_path
 		}
 	}
 `;
@@ -52,4 +64,4 @@ const getMovieInfo = gql`
 		}
 	}
 `;
-export { getNewMovies, getMovieInfo, searchForMovies };
+export { getNewMovies, getMovieInfo, searchForMovies, discoverMovies };
