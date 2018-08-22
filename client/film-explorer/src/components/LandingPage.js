@@ -2,17 +2,24 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const customLandingLinks = () => (
-	<div>
-		<h1>Insert cool App name here</h1>
-		<li>
-			<Link to="/movies">New Movies</Link>
-		</li>
-		<li>
-			<Link to="/search">Movie Search</Link>
-		</li>
-			<li>
-			<Link to="/discover">Discover Movies</Link>
-		</li>
+	<div className="landing">
+		<div className="title">
+			<h1 className="app_title">Insert cool App name here</h1>
+		</div>
+
+		<nav className="nav_items">
+			<Link className="landing_link" to="/movies">
+				New Movies
+			</Link>
+
+			<Link className="landing_link" to="/search">
+				Movie Search
+			</Link>
+
+			<Link className="landing_link" to="/discover">
+				Discover Movies
+			</Link>
+		</nav>
 	</div>
 );
 

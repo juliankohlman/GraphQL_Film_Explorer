@@ -1,0 +1,28 @@
+@include mediaXl {
+	.landing {
+		.title {
+			margin: 25px;
+			align-items: center;
+			display: flex;
+			flex-flow: column wrap;
+			font-family: $font-fun;
+			font-size: 40px;
+			justify-content: center;
+		}
+
+		.nav_items {
+			align-items: center;
+			display: flex;
+			flex-flow: column wrap;
+			font-family: $font-base;
+			justify-content: center;
+
+			.landing_link {
+				padding: 20px;
+				&:hover {
+					font-weight: bolder;
+				}
+			}
+		}
+	}
+}
