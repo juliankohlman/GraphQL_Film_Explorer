@@ -12,13 +12,18 @@ class NewMovies extends Component {
 					<Link to={'/info/' + movie.id}>
 						<img src={movie.poster_path} alt="poster" />
 					</Link>
-					<h1>{movie.title}</h1>
+					<h1 className="movie_title">{movie.title}</h1>
 				</article>
 			);
 		});
 	}
 	render() {
-		if (this.props.data.loading) return <div>loading movies...</div>;
+		if (this.props.data.loading)
+			return (
+				<div className="loading_message">	
+					<h1>loading movies...</h1>
+				</div>
+			);
 		return this.Movies();
 	}
 }

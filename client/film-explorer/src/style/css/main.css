@@ -151,4 +151,13 @@ body {
     .landing .nav_items .landing_link {
       padding: 20px; }
       .landing .nav_items .landing_link:hover {
-        font-weight: bolder; } }
+        font-weight: bolder; }
+  .loading_message {
+    align-content: center;
+    display: flex;
+    font-family: "Londrina Solid", cursive;
+    font-size: 42px;
+    justify-content: center;
+    margin-top: 25%; }
+  .movie_list .movie_title {
+    font-family: "Londrina Solid", cursive; } }

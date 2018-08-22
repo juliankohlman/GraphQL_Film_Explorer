@@ -25,4 +25,21 @@
 			}
 		}
 	}
+
+	// loadout div message
+	.loading_message {
+		align-content: center;
+		display: flex;
+		font-family: $font-fun;
+		font-size: 42px;
+		justify-content: center;
+		margin-top: 25%;
+		// max-width: 50%;
+	}
+	// movie list grid
+	.movie_list {
+		.movie_title {
+			font-family: $font-fun;
+		}
+	}
 }
