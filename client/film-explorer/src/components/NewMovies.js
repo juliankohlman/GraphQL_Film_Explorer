@@ -12,7 +12,7 @@ class NewMovies extends Component {
 					<Link to={'/info/' + movie.id}>
 						<img className="poster_img" src={movie.poster_path} alt="poster" />
 					</Link>
-					<h1 className="movie_title">{movie.title}</h1>
+					{/* <h1 className="movie_title">{movie.title}</h1> */}
 				</article>
 			);
 		});
@@ -24,7 +24,14 @@ class NewMovies extends Component {
 					<h1>loading movies...</h1>
 				</div>
 			);
-		return this.Movies();
+		return (
+			<div>
+				<a id="home_btn" href="/">
+					Home
+				</a>
+				{this.Movies()}
+			</div>
+		);
 	}
 }
 

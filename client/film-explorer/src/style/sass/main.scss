@@ -1,4 +1,5 @@
 @import 'config';
+@import 'mobile';
 @import 'reset';
 @import url('https://fonts.googleapis.com/css?family=Londrina+Solid|Open+Sans');
 
@@ -8,4 +9,9 @@ body {
 	background-color: #efefef;
 }
 
-@import 'mobile';
+#home_btn {
+	font-family: $font-fun;
+	&:hover {
+		font-weight: bolder;
+	}
+}

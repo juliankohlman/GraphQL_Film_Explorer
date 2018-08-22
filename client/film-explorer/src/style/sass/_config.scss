@@ -28,7 +28,7 @@ $font-base: 'Open Sans', sans-serif;
 
 @mixin mediaXl {
 	// 1171px and above
-	@media screen and (max-width: 1171px) {
+	@media screen and (max-width: 1640px) {
 		@content;
 	}
 }

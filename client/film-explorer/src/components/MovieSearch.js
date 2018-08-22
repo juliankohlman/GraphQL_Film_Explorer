@@ -26,7 +26,11 @@ class MovieSearch extends Component {
 					{this.state.results.map(movie => (
 						<article key={movie.id} className="movie_list">
 							<Link to={'/info/' + movie.id}>
-								<img src={movie.poster_path} alt="poster" />
+								<img
+									className="poster_img"
+									src={movie.poster_path}
+									alt="poster"
+								/>
 							</Link>
 							<h1>{movie.original_title}</h1>
 						</article>

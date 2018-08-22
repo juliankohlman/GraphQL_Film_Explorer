@@ -38,8 +38,22 @@
 	}
 	// movie list grid
 	.movie_list {
+		display: grid;
+		padding: 15px;
+		margin: 0 20px 0 20px;
+		width: 16.6%;
+		float: left;
+		position: relative;
+		.poster_img {
+			// grid-template-columns: 100px 100px 100px;
+			// grid-gap: 10px;
+			width: 100%;
+			height: 100%;
+			// add darkbackground
+			// hover effect should look like poster is backlit when hovered
+		}
 		.movie_title {
-			font-family: $font-fun;
+			// font-family: $font-fun;
 		}
 	}
 }
