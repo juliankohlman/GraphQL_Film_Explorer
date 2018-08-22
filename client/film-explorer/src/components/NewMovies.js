@@ -10,7 +10,7 @@ class NewMovies extends Component {
 			return (
 				<article key={movie.id} className="movie_list">
 					<Link to={'/info/' + movie.id}>
-						<img src={movie.poster_path} alt="poster" />
+						<img className="poster_img" src={movie.poster_path} alt="poster" />
 					</Link>
 					<h1 className="movie_title">{movie.title}</h1>
 				</article>
@@ -20,7 +20,7 @@ class NewMovies extends Component {
 	render() {
 		if (this.props.data.loading)
 			return (
-				<div className="loading_message">	
+				<div className="loading_message">
 					<h1>loading movies...</h1>
 				</div>
 			);
