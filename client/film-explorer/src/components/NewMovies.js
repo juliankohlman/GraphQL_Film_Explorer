@@ -4,6 +4,9 @@ import { Link } from 'react-router-dom';
 import { getNewMovies } from '../queries/queries';
 
 class NewMovies extends Component {
+	// extrapolate Movies() out of this component
+	// this can be passed to all other components
+	// that return search results...Discover,Search etc..
 	Movies() {
 		console.log(this.props.data);
 		return this.props.data.newMovies.map(movie => {
