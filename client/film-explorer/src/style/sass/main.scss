@@ -6,12 +6,16 @@
 body {
 	margin: 0;
 	padding: 0;
-	background-color: #efefef;
+	// background-color: #efefef;
+	background-color: #3d3d3b;
 }
 
 #home_btn {
 	font-family: $font-fun;
+	padding: 20px;
+	color: #4c5870;
 	&:hover {
+		color: #c95b59;
 		font-weight: bolder;
 	}
 }

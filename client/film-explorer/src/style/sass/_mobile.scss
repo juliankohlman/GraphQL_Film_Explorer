@@ -6,6 +6,7 @@
 			display: flex;
 			flex-flow: column wrap;
 			font-family: $font-fun;
+			color: #7f8489;
 			font-size: 40px;
 			justify-content: center;
 		}
@@ -19,8 +20,10 @@
 
 			.landing_link {
 				padding: 20px;
+				color: #4c5870;
 				&:hover {
 					font-weight: bolder;
+					color: #c95b59;
 				}
 			}
 		}
@@ -29,6 +32,7 @@
 	// loadout div message
 	.loading_message {
 		align-content: center;
+		color: #4c5870;
 		display: flex;
 		font-family: $font-fun;
 		font-size: 42px;
