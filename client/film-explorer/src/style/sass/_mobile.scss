@@ -1,12 +1,14 @@
 @include mediaXl {
 	.landing {
 		.title {
+			// convert this to mixin
 			margin: 25px;
 			align-items: center;
 			display: flex;
 			flex-flow: column wrap;
 			font-family: $font-fun;
-			color: #7f8489;
+			// color: #7f8489;
+			color: $nice-blue;
 			font-size: 40px;
 			justify-content: center;
 		}
