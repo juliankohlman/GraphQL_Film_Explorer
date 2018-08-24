@@ -1,4 +1,11 @@
 @include mediaXl {
+	body {
+		background: $home-page;
+		background-attachment: fixed;
+		background-size: cover;
+		$background-opacity: 0.9;
+		// background: $dark-bcg;
+	}
 	.landing {
 		.title {
 			// convert this to mixin
@@ -22,7 +29,7 @@
 
 			.landing_link {
 				padding: 20px;
-				color: #4c5870;
+				color: $primary-color;
 				&:hover {
 					font-weight: bolder;
 					color: #c95b59;

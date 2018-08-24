@@ -2,9 +2,32 @@
 $primary-color: #4c5870;
 $heading-color: #7f8489;
 $nice-blue: #627db0;
+$dark-bcg: #3d3d3b;
 // fonts
 $font-fun: 'Londrina Solid', cursive;
 $font-base: 'Open Sans', sans-serif;
+// background image for landing
+$home-page: url(../assets/felix-mooneeram-222805-unsplash.jpg);
+$background-opacity: 0.9;
+
+@mixin background {
+	body {
+		background: $home-page;
+		background-attachment: fixed;
+		background-size: contain;
+	}
+	// pseudo element now we don't need overlay class in markup
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1; // moves overlay behind text
+		background: rgba($primary-color, $background-opacity);
+	}
+}
 
 // Media Query Mixins
 @mixin mediaSm {

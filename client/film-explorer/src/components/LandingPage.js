@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const customLandingLinks = () => (
 	<div className="landing">
 		<div className="title">
-			<h1 className="app_title">Insert cool App name here</h1>
+			<h1 className="app_title">The Film Explorer</h1>
 		</div>
 
 		<nav className="nav_items">
