@@ -11,7 +11,7 @@
     flex-flow: column wrap;
     font-family: "Londrina Solid", cursive;
     color: #627db0;
-    font-size: 40px;
+    font-size: 65px;
     justify-content: center; }
   .landing .nav_items {
     align-items: center;
@@ -30,9 +30,9 @@
     color: #4c5870;
     display: flex;
     font-family: "Londrina Solid", cursive;
-    font-size: 42px;
+    font-size: 65px;
     justify-content: center;
-    margin-top: 25%; }
+    margin-top: 20%; }
   .movie_list {
     display: grid;
     padding: 15px;
@@ -173,9 +173,14 @@ table {
   border-collapse: collapse;
   border-spacing: 0; }
 
+#new_movies_container .home_nav {
+  margin: 1.5%;
+  font-size: 40px; }
+
 #home_btn {
   font-family: "Londrina Solid", cursive;
   padding: 20px;
+  margin-bottom: 20%;
   color: #4c5870; }
   #home_btn:hover {
     color: #c95b59;

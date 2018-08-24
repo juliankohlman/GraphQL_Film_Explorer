@@ -12,17 +12,24 @@ class MovieSearch extends Component {
 	render() {
 		return (
 			<div>
-				<a id="home_btn" href="/">
-					Home
-				</a>
+				<div id="new_movies_container">
+					<div className="home_nav">
+						<a id="home_btn" href="/">
+							Home
+						</a>
+					</div>
+				</div>
 				<div>
 					Search
 					<input
+						className="search_box"
 						type="text"
 						placeholder="Movie title..."
 						onChange={e => this.setState({ query: e.target.value })}
 					/>
-					<button onClick={() => this.runSearch()}>OK</button>
+					<button className="search_button" onClick={() => this.runSearch()}>
+						OK
+					</button>
 					{this.state.results.map(movie => (
 						<article key={movie.id} className="movie_list">
 							<Link to={'/info/' + movie.id}>

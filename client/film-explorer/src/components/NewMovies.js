@@ -15,7 +15,6 @@ class NewMovies extends Component {
 					<Link to={'/info/' + movie.id}>
 						<img className="poster_img" src={movie.poster_path} alt="poster" />
 					</Link>
-					{/* <h1 className="movie_title">{movie.title}</h1> */}
 				</article>
 			);
 		});
@@ -28,10 +27,12 @@ class NewMovies extends Component {
 				</div>
 			);
 		return (
-			<div>
-				<a id="home_btn" href="/">
-					Home
-				</a>
+			<div id="new_movies_container">
+				<div className="home_nav">
+					<a id="home_btn" href="/">
+						Home
+					</a>
+				</div>
 				{this.Movies()}
 			</div>
 		);

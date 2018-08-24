@@ -16,7 +16,7 @@
 			font-family: $font-fun;
 			// color: #7f8489;
 			color: $nice-blue;
-			font-size: 40px;
+			font-size: $font-lg;
 			justify-content: center;
 		}
 
@@ -44,9 +44,9 @@
 		color: #4c5870;
 		display: flex;
 		font-family: $font-fun;
-		font-size: 42px;
+		font-size: $font-lg;
 		justify-content: center;
-		margin-top: 25%;
+		margin-top: 20%;
 		// max-width: 50%;
 	}
 	// movie list grid
@@ -65,8 +65,8 @@
 			// add darkbackground
 			// hover effect should look like poster is backlit when hovered
 		}
-		.movie_title {
-			// font-family: $font-fun;
-		}
+		// .movie_title {
+		// 	// font-family: $font-fun;
+		// }
 	}
 }

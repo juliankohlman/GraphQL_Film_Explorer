@@ -12,9 +12,13 @@ class DiscoverMovies extends Component {
 	render() {
 		return (
 			<div>
-				<a id="home_btn" href="/">
-					Home
-				</a>
+				<div id="new_movies_container">
+					<div className="home_nav">
+						<a id="home_btn" href="/">
+							Home
+						</a>
+					</div>
+				</div>
 				<div>
 					Search
 					<input
