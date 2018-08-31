@@ -8,7 +8,7 @@ class DiscoverMovies extends Component {
 		results: [],
 		primary_release_year: ''
 	};
-
+	// ! Need to extract movie list functionality into a presentational component
 	render() {
 		return (
 			<div>
