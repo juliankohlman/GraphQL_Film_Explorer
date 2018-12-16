@@ -23,7 +23,7 @@ class DiscoverMovies extends Component {
 					Search
 					<input
 						type="text"
-						placeholder="Enter a year..."
+						placeholder="Search for movies by year"
 						onChange={e =>
 							this.setState({ primary_release_year: e.target.value })
 						}
