@@ -16,8 +16,9 @@ $home-page: url(../assets/felix-mooneeram-222805-unsplash.jpg);
 @mixin background {
 	body {
 		background: $home-page;
-		// background-attachment: fixed;
-		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 100%;
 	}
 }
 
