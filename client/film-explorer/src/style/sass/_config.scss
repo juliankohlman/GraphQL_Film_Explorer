@@ -1,7 +1,8 @@
 // colors
 $primary-color: #4c5870;
 $heading-color: #7f8489;
-$nice-blue: #627db0;
+// $nice-blue: #627db0;
+$nice-blue: #2953a0;
 $dark-bcg: #3d3d3b;
 // fonts
 $font-fun: 'Londrina Solid', cursive;
@@ -46,7 +47,7 @@ $home-page: url(../assets/felix-mooneeram-222805-unsplash.jpg);
 
 @mixin mediaXl {
 	// 1171px and above
-	@media screen and (max-width: 1640px) {
+	@media screen and (max-width: 2125px) {
 		@content;
 	}
 }

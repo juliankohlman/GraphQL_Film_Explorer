@@ -1,16 +1,15 @@
 @import url("https://fonts.googleapis.com/css?family=Londrina+Solid|Open+Sans");
-@media screen and (max-width: 1640px) {
+@media screen and (max-width: 2125px) {
   body {
     background: url(../assets/felix-mooneeram-222805-unsplash.jpg);
     background-attachment: fixed;
     background-size: cover; }
   .landing .title {
-    margin: 25px;
     align-items: center;
     display: flex;
     flex-flow: column wrap;
     font-family: "Londrina Solid", cursive;
-    color: #627db0;
+    color: #2953a0;
     font-size: 65px;
     justify-content: center; }
   .landing .nav_items {
