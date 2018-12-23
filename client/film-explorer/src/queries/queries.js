@@ -1,5 +1,7 @@
 import { gql } from 'apollo-boost';
-
+// ! 1 query per file
+// * keep new movies as base query and extract additonal query into
+// * its own file ../queries/<query_name>
 const getNewMovies = gql`
 	{
 		newMovies {
