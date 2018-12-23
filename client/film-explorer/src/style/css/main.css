@@ -5,13 +5,15 @@
     background-attachment: fixed;
     background-size: cover; }
   .landing .title {
+    margin-top: 10%;
+    margin-bottom: 5%;
     align-items: center;
+    justify-content: center;
     display: flex;
-    flex-flow: column wrap;
+    flex-flow: row wrap;
     font-family: "Londrina Solid", cursive;
     color: #2953a0;
-    font-size: 65px;
-    justify-content: center; }
+    font-size: 65px; }
   .landing .nav_items {
     align-items: center;
     display: flex;
@@ -20,7 +22,9 @@
     justify-content: center; }
     .landing .nav_items .landing_link {
       padding: 20px;
-      color: #4c5870; }
+      color: #4c5870;
+      text-decoration: none;
+      font-size: 40px; }
       .landing .nav_items .landing_link:hover {
         font-weight: bolder;
         color: #c95b59; }
@@ -173,7 +177,6 @@ table {
   border-spacing: 0; }
 
 #new_movies_container .home_nav {
-  margin: 1.5%;
   font-size: 40px; }
 
 #home_btn {

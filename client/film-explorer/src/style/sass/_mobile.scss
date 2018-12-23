@@ -9,15 +9,16 @@
 	.landing {
 		.title {
 			// convert this to mixin
-			// margin: 25px;
+			margin-top: 10%;
+			margin-bottom: 5%;
 			align-items: center;
+			justify-content: center;
 			display: flex;
-			flex-flow: column wrap;
+			flex-flow: row wrap;
 			font-family: $font-fun;
 			// color: #7f8489;
 			color: $nice-blue;
 			font-size: $font-lg;
-			justify-content: center;
 		}
 
 		.nav_items {
@@ -30,6 +31,8 @@
 			.landing_link {
 				padding: 20px;
 				color: $primary-color;
+				text-decoration: none;
+				font-size: $font-md;
 				&:hover {
 					font-weight: bolder;
 					color: #c95b59;
