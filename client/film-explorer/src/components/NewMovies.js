@@ -9,6 +9,7 @@ class NewMovies extends Component {
 	// that return search results...Discover,Search etc..
 	Movies() {
 		console.log(this.props.data);
+		// * Render cards using material ui card components
 		return this.props.data.newMovies.map(movie => {
 			return (
 				<article key={movie.id} className="movie_list">
