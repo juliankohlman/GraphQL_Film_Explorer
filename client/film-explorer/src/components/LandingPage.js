@@ -1,38 +1,51 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Link } from 'react-router-dom';
 import logo from '../style/assets/logo.png';
+import { Link } from 'react-router-dom';
+
 const Wrapper = styled.div`
+	background: #083e4e;
+	height: 100vh;
 	display: flex;
 	flex-flow: column;
-	margin: auto;
-	background: #2953a0;
 `;
 const Image = styled.img`
-	width: 175px;
-	height: 175px;
+	border-radius: 15px;
+	margin-top: 10%;
+	margin-right: auto;
+	margin-left: auto;
+	width: 250px;
+	height: 250px;
+`;
+const LinkList = styled.div`
+	display: flex;
+	flex-flow: column;
+	align-self: center;
+	margin: 25px;
+`;
+
+const StyledLink = styled(Link)`
+	font-size: 35px;
+	font-family: Londrina Solid;
+	text-decoration: none;
+	color: white;
+	padding: 7%;
+	&:hover {
+		color: #d5441d;
+	}
 `;
 
 const customLandingLinks = () => (
 	<Wrapper>
 		<Image src={logo} />
-		<div className="title">
-			<h1 className="app_title">The Film Explorer</h1>
-		</div>
 
-		<nav className="nav_items">
-			<Link className="landing_link" to="/movies">
-				New Movies
-			</Link>
+		<LinkList>
+			<StyledLink to="/movies">New Movies</StyledLink>
 
-			<Link className="landing_link" to="/search">
-				Movie Search
-			</Link>
+			<StyledLink to="/search">Movie Search</StyledLink>
 
-			<Link className="landing_link" to="/discover">
-				Discover Movies
-			</Link>
-		</nav>
+			<StyledLink to="/discover">Discover Movies</StyledLink>
+		</LinkList>
 	</Wrapper>
 );
 

@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css?family=Londrina+Solid|Open+Sans");
+@import url('https://fonts.googleapis.com/css?family=Londrina+Solid|Open+Sans');
+/* 
 @media screen and (max-width: 2125px) {
   body {
     background: url(../assets/felix-mooneeram-222805-unsplash.jpg);
@@ -45,7 +46,7 @@
     position: relative; }
     .movie_list .poster_img {
       width: 100%;
-      height: 100%; } }
+      height: 100%; } } */
 
 /* http://meyerweb.com/eric/tools/css/reset/ 
    v2.0 | 20110126
@@ -132,12 +133,13 @@ time,
 mark,
 audio,
 video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline; }
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
 
 /* HTML5 display-role reset for older browsers */
 article,
@@ -151,39 +153,51 @@ hgroup,
 menu,
 nav,
 section {
-  display: block; }
+	display: block;
+}
 
 body {
-  line-height: 1; }
+	line-height: 1;
+}
 
 ol,
 ul {
-  list-style: none; }
+	list-style: none;
+}
 
 blockquote,
 q {
-  quotes: none; }
+	quotes: none;
+}
 
-blockquote:before, blockquote:after {
-  content: '';
-  content: none; }
+blockquote:before,
+blockquote:after {
+	content: '';
+	content: none;
+}
 
-q:before, q:after {
-  content: '';
-  content: none; }
+q:before,
+q:after {
+	content: '';
+	content: none;
+}
 
 table {
-  border-collapse: collapse;
-  border-spacing: 0; }
+	border-collapse: collapse;
+	border-spacing: 0;
+}
 
-#new_movies_container .home_nav {
-  font-size: 40px; }
+/* #new_movies_container .home_nav {
+	font-size: 40px;
+}
 
 #home_btn {
-  font-family: "Londrina Solid", cursive;
-  padding: 20px;
-  margin-bottom: 20%;
-  color: #4c5870; }
-  #home_btn:hover {
-    color: #c95b59;
-    font-weight: bolder; }
+	font-family: 'Londrina Solid', cursive;
+	padding: 20px;
+	margin-bottom: 20%;
+	color: #4c5870;
+}
+#home_btn:hover {
+	color: #c95b59;
+	font-weight: bolder;
+} */

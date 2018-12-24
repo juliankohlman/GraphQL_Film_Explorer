@@ -8,12 +8,13 @@ import MovieInfo from './components/MovieInfo';
 import LandingPage from './components/LandingPage';
 import MovieSearch from './components/MovieSearch';
 import DiscoverMovies from './components/DiscoverMovie';
-// import './style/css/main.css';
+import styles from './style/css/main.css';
+
 const client = new ApolloClient({
 	// Burned a lot of time b/f realizing I was not providing the client side w/the proper endpoint
 	uri: `http://localhost:4000/graphql`
 });
-const Root = () => {
+const App = () => {
 	return (
 		<HashRouter>
 			<ApolloProvider client={client}>
@@ -28,4 +29,4 @@ const Root = () => {
 		</HashRouter>
 	);
 };
-ReactDOM.render(<Root />, document.querySelector('#root'));
+ReactDOM.render(<App />, document.querySelector('#root'));
