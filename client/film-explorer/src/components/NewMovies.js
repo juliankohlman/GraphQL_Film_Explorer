@@ -1,7 +1,15 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import { getNewMovies } from '../queries/queries';
+
+const Wrapper = styled.div`
+	background: #083e4e;
+	height: 100vh;
+	display: flex;
+	flex-flow: column;
+`;
 
 class NewMovies extends Component {
 	// extrapolate Movies() out of this component
@@ -21,13 +29,12 @@ class NewMovies extends Component {
 		});
 	}
 	render() {
-		if (this.props.data.loading)
-			return (
-				<div className="loading_message">
-					<h1>loading movies...</h1>
-				</div>
-			);
-		return (
+		<Wrapper>
+			if (this.props.data.loading) return (
+			<div className="loading_message">
+				<h1>loading movies...</h1>
+			</div>
+			); return (
 			<div id="new_movies_container">
 				<div className="home_nav">
 					<a id="home_btn" href="/">
@@ -36,7 +43,8 @@ class NewMovies extends Component {
 				</div>
 				{this.Movies()}
 			</div>
-		);
+			);
+		</Wrapper>;
 	}
 }
 
