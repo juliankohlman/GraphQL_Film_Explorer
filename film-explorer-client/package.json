@@ -1,7 +1,8 @@
 {
 	"name": "film-explorer",
 	"version": "0.1.0",
-	"private": true,
+  "private": true,
+  
 	"dependencies": {
 		"apollo-boost": "^0.1.4",
 		"apollo-cache-inmemory": "^1.1.12",
