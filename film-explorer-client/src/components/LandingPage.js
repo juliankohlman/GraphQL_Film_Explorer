@@ -1,10 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
 import logo from '../style/assets/logo.png';
+import theaterBG from '../style/assets/theater.jpg';
 import { Link } from 'react-router-dom';
 
 const Wrapper = styled.div`
-	background: #083e4e;
+	// background: #083e4e;
+	background: url(${theaterBG});
+	background-size: cover;
 	height: 100vh;
 	display: flex;
 	flex-flow: column;
