@@ -1,6 +1,7 @@
 const graphql = require('graphql');
 const axios = require('axios');
 
+// * Refactor from schema to front end
 const {
 	GraphQLObjectType,
 	GraphQLString,
