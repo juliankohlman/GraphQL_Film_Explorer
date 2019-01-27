@@ -2,6 +2,7 @@ const graphql = require('graphql');
 const axios = require('axios');
 
 // * Refactor from schema to front end
+// ! Todo refine schema code using https://www.prisma.io/blog/how-to-wrap-a-rest-api-with-graphql-8bf3fb17547d as a reference
 const {
 	GraphQLObjectType,
 	GraphQLString,
