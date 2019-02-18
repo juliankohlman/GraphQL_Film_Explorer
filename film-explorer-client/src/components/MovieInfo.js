@@ -69,7 +69,7 @@ class MovieInfo extends Component {
 								style={{
 									backgroundImage:
 										'url("https://image.tmdb.org/t/p/w500///' +
-										data.movieInfo.poster_path +
+										data.movieInfo.backdrop_path +
 										'")'
 								}}
 							>

@@ -44,6 +44,7 @@ const getMovieInfo = gql`
 			title
 			overview
 			poster_path
+			backdrop_path
 			genres
 			release_date
 			vote_average

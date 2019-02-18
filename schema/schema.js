@@ -74,6 +74,7 @@ const MovieInfoType = new GraphQLObjectType({
 		id: { type: GraphQLID },
 		overview: { type: GraphQLString },
 		title: { type: GraphQLString },
+		backdrop_path: { type: GraphQLString },
 		poster_path: { type: GraphQLString },
 		genres: { type: GraphQLString },
 		release_date: { type: GraphQLString },
